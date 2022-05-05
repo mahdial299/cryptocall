@@ -48,13 +48,15 @@ def animate_reg(i):
 
         diff = y_values - y_values_
 
-        if diff < 0 and (-1*diff) > buyborder:
+        diff.astype(float)
 
-            print(R + 'buy now' + W)
+        # if (diff < 0) and (abs(diff) >= buyborder):
 
-        elif diff > 0 and diff > sellborder:
+        #     print(R + 'buy now' + W)
 
-            print(G + 'sell now' + W)
+        # elif (diff > 0) and (diff >= sellborder):
+
+        #     print(G + 'sell now' + W)
 
 
 

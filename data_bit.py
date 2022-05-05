@@ -35,7 +35,16 @@ while True:
 
     with open("data.csv", 'a') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames=field_names)
-        x_value = f'{e.month}{e.day}{e.hour}{e.minute}'
+
+        inter = int(e.minute)
+        if inter < 10:
+
+            x_value = f'{e.month}{e.day}{e.hour}{e.minute}0'
+
+        else:
+
+            x_value = f'{e.month}{e.day}{e.hour}{e.minute}'
+
 
         info = {
             "Date": x_value,
