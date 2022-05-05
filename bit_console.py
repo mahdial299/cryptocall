@@ -17,9 +17,9 @@ G = '\033[32m'
 C = '\033[36m'
 W = '\033[0m'
 
-buyborder = 3000000
+buyborder = 300000
 
-sellborder = 3000000
+sellborder = 300000
 
 sec = 60
 
@@ -50,7 +50,7 @@ def animate_reg(i):
 
         if y_values[i] < y_values_[i]:
 
-            diff = abs(y_values[i] - y_values_[i])
+            diff = int(abs(y_values[i] - y_values_[i]))
 
             aton = int(abs(y_values[i] - y_values_[i]))
 
@@ -60,9 +60,9 @@ def animate_reg(i):
 
         elif y_values[i] > y_values_[i]:
 
-            diff = y_values[i] - y_values_[i]
+            diff = int(y_values[i] - y_values_[i])
 
-            aton = int(abs(y_values[i] - y_values_[i]))
+            aton = int(y_values[i] - y_values_[i])
 
             if diff >= buyborder:
 
