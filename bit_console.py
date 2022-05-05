@@ -17,9 +17,11 @@ G = '\033[32m'
 C = '\033[36m'
 W = '\033[0m'
 
-buyborder = 800000
+buyborder = 3000000
 
-sellborder = 800000
+sellborder = 3000000
+
+sec = 60
 
 def animate_reg(i):
 
@@ -44,34 +46,47 @@ def animate_reg(i):
 
     y_values_ = reg.predict(x_values)
 
-    for itemdate in x_values:
+    for i in range(len(y_values)):
 
-        diff = y_values - y_values_
+        if y_values[i] < y_values_[i]:
 
-        diff.astype(float)
+            diff = abs(y_values[i] - y_values_[i])
 
-        # if (diff < 0) and (abs(diff) >= buyborder):
+            aton = int(abs(y_values[i] - y_values_[i]))
 
-        #     print(R + 'buy now' + W)
+            if diff >= buyborder:
 
-        # elif (diff > 0) and (diff >= sellborder):
+                print(R+'buy now'+C+f' diff : {aton}')
 
-        #     print(G + 'sell now' + W)
+        elif y_values[i] > y_values_[i]:
+
+            diff = y_values[i] - y_values_[i]
+
+            aton = int(abs(y_values[i] - y_values_[i]))
+
+            if diff >= buyborder:
+
+                print(G+'sell now'+C+f' diff : {aton}')
+
+        else:
+
+            diff = y_values[i] - y_values_[i]
+
+            aton = int(abs(y_values[i] - y_values_[i]))
+
+            print(G+'cold zone!'+C+f' diff : {aton}')
 
 
 
-    plt.scatter(x_values, y_values, color='red')
+    plt.plot(x_values, y_values, color='red')
     plt.plot(x_values, y_values_, color='blue')
-
+   
     plt.show()
-        
+
 
 if __name__ == '__main__':
 
-    ani = FuncAnimation(plt.gcf(), animate_reg, interval=60000)
+    ani = FuncAnimation(plt.gcf(), animate_reg, interval=f'{sec}000')
     plt.tight_layout()
+    # plt.style.use('bmh')
     plt.show()
-
-
-
-

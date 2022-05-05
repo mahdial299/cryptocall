@@ -39,7 +39,7 @@ while True:
         inter = int(e.minute)
         if inter < 10:
 
-            x_value = f'{e.month}{e.day}{e.hour}{e.minute}0'
+            x_value = f'{e.month}{e.day}{e.hour}0{e.minute}'
 
         else:
 
