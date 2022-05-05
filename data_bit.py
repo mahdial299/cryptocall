@@ -5,7 +5,7 @@ import random
 import time
 import pyfiglet
 import colored
-import datetime
+from datetime import datetime
 from bs4 import BeautifulSoup
 import requests
 
@@ -27,7 +27,7 @@ with open("data.csv", 'w') as csv_file:
 
 while True:
 
-    e = datetime.datetime.now()
+    e = datetime.now()
     crypt = 'bitcoin'
     price = get_crypto(crypt)
     if ',' in price:
@@ -35,18 +35,18 @@ while True:
 
     with open("data.csv", 'a') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames=field_names)
-        x_value = e.second
+        x_value = f'{e.month}{e.day}{e.hour}{e.minute}'
 
         info = {
             "Date": x_value,
-            "price": price[0:14]
+            "price": round(int(float(price[0:14])), 7)
         }
 
         csv_writer.writerow(info)
-        print(x_value, price[0:14])
+        print(x_value, round(int(float(price[0:14])), 7))
         # x_value += 1
         price = get_crypto(crypt)
         # print(f'price : {price[0:17]} IRR')
         # print(e.second, price[0:14])
-    time.sleep(1)
+    time.sleep(60)
         # return e.second, price[0:14]

@@ -17,7 +17,9 @@ G = '\033[32m'
 C = '\033[36m'
 W = '\033[0m'
 
+buyborder = 800000
 
+sellborder = 800000
 
 def animate_reg(i):
 
@@ -42,6 +44,20 @@ def animate_reg(i):
 
     y_values_ = reg.predict(x_values)
 
+    for itemdate in x_values:
+
+        diff = y_values - y_values_
+
+        if diff < 0 and (-1*diff) > buyborder:
+
+            print(R + 'buy now' + W)
+
+        elif diff > 0 and diff > sellborder:
+
+            print(G + 'sell now' + W)
+
+
+
     plt.scatter(x_values, y_values, color='red')
     plt.plot(x_values, y_values_, color='blue')
 
@@ -50,7 +66,7 @@ def animate_reg(i):
 
 if __name__ == '__main__':
 
-    ani = FuncAnimation(plt.gcf(), animate_reg, interval=1000)
+    ani = FuncAnimation(plt.gcf(), animate_reg, interval=60000)
     plt.tight_layout()
     plt.show()
 
