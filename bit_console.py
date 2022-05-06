@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-import datetime
+from datetime import datetime
 import time
 import pyfiglet
 import os
@@ -10,12 +10,15 @@ import numpy as np
 from matplotlib.animation import FuncAnimation
 from sklearn import linear_model
 import csv
+import random
 
 
 R = '\033[31m'
 G = '\033[32m'
 C = '\033[36m'
 W = '\033[0m'
+
+
 
 buyborder = 300000
 
@@ -52,7 +55,7 @@ def animate_reg(i):
 
             diff = int(abs(y_values[i] - y_values_[i]))
 
-            aton = int(abs(y_values[i] - y_values_[i]))
+            aton = int(abs(y_values[i] - y_values_[i])/10)
 
             if diff >= buyborder:
 
@@ -62,7 +65,7 @@ def animate_reg(i):
 
             diff = int(y_values[i] - y_values_[i])
 
-            aton = int(y_values[i] - y_values_[i])
+            aton = int(y_values[i] - y_values_[i]/10)
 
             if diff >= buyborder:
 
@@ -72,9 +75,9 @@ def animate_reg(i):
 
             diff = y_values[i] - y_values_[i]
 
-            aton = int(abs(y_values[i] - y_values_[i]))
+            aton = int(abs(y_values[i] - y_values_[i])/10)
 
-            print(G+'cold zone!'+C+f' diff : {aton}')
+            print(W+'cold zone!'+C+f' diff : {aton}')
 
 
 
