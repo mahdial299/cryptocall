@@ -48,11 +48,11 @@ while True:
 
         info = {
             "Date": x_value,
-            "price": round(int(float(price[0:14])), 7)
+            "price": round(int(float(price[0:12])), 7)
         }
 
         csv_writer.writerow(info)
-        print(x_value, round(int(float(price[0:14])), 7))
+        print(x_value, round(int(float(price[0:12])), 7))
         # x_value += 1
         price = get_crypto(crypt)
         # print(f'price : {price[0:17]} IRR')

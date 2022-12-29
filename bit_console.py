@@ -80,16 +80,18 @@ def animate_reg(i):
             print(W+'cold zone!'+C+f' diff : {aton}')
 
 
-
-    plt.plot(x_values, y_values, color='red')
-    plt.plot(x_values, y_values_, color='blue')
-   
+    plt.style.use('dark_background')
+    plt.scatter(x_values, y_values, color='red', label='price')
+    plt.plot(x_values, y_values_, color='blue', label='base_line')
+    plt.grid()
+    plt.legend()
     plt.show()
 
 
 if __name__ == '__main__':
 
+    plt.style.use('dark_background')
     ani = FuncAnimation(plt.gcf(), animate_reg, interval=f'{sec}000')
     plt.tight_layout()
-    # plt.style.use('bmh')
+    plt.grid()
     plt.show()
