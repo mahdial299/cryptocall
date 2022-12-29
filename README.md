@@ -32,11 +32,11 @@ there is csv file which works as intermedian between console and data generator
 in future developements this file can be delete (by use of Pipe() or Queue() module)
 
 ## Requirements
-pandas 
-numpy
-matplotlib
-sklearn
-colored
-Pyfiglet(optional)
+-pandas 
+-numpy
+-matplotlib
+-sklearn
+-colored
+-Pyfiglet(optional)
 
 
