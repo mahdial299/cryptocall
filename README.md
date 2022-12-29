@@ -30,3 +30,13 @@ x_value = f'{e.month}{e.day}{e.hour}{e.minute}'
 there is csv file which works as intermedian between console and data generator
 
 in future developements this file can be delete (by use of Pipe() or Queue() module)
+
+## Requirements
+pandas 
+numpy
+matplotlib
+sklearn
+colored
+Pyfiglet(optional)
+
+
